@@ -1,12 +1,15 @@
 function promise1(){
-    return new Promise((resolve,reject)=> {
+    return new Promise((resolve, reject) => {
         resolve();
-    });
+    })
 }
-
 promise1()
-.then(()=>(console.log(`success`))
-.catch(() =>(console.log(`there was an error`))),
+.then(() => {
+    console.log(`success`)
+})
+.catch(() => {
+    console.log(`there was an error`)
+})
 
 function promise2(errorBoolean) {
     return new Promise((resolve, reject) => {
@@ -16,6 +19,7 @@ function promise2(errorBoolean) {
         resolve('Your data you asked for.');
     }
     })
+};
 
 
 promise2(true)
@@ -31,5 +35,9 @@ promise2(false)
     const promise5 = new Promise((resolve,reject) => {resolve(`promise 5 complete`)}); 
 
     promise3
+    .then(data => {console.log(data)})
+    .catch(err => {console.log(err)})
+
+    promise.all([promise3, promise4, promise5])
     .then(data => {console.log(data)})
     .catch(err => {console.log(err)})
